@@ -1,0 +1,14 @@
+name: contributor_list
+author: Caleb Denio
+description: Easily list contributors on your README!
+inputs:
+  include_numbers:
+    required: false
+    default: false
+    description: Whether or not to include the amount of contributions.
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  color: blue
+  icon: users
