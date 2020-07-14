@@ -3,13 +3,17 @@ import requests
 import pathlib
 import re
 import os
+from os import path
 
 r = requests.get(
     f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contributors"
 )
 
-file_path = pathlib.Path(__file__).parent.absolute().joinpath(
-    "default_template.md")
+if path.exists(".github/contributor_list_template.md"):
+    file_path = pathlib.Path(".github/contributor_list_template.md").absolute()
+else:
+    file_path = pathlib.Path(__file__).parent.absolute().joinpath(
+        "default_template.md")
 
 with open(file_path) as template_file:
     template = Template(template_file.read())
