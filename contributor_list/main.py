@@ -5,7 +5,7 @@ import re
 import os
 
 r = requests.get(
-    f"https://api.github.com/repos/{os.environ["GITHUB_REPOSITORY"]}/contributors"
+    f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contributors"
 )
 
 file_path = pathlib.Path(__file__).parent.absolute().joinpath(
