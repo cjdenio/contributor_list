@@ -69,9 +69,11 @@ jobs:
 ## 👀 Live Example
 
 <!-- DO NOT REMOVE - contributor_list:start -->
-
 ## 👥 Contributors
 
-- **[@cjdenio](https://github.com/cjdenio)** (14 contributions)
+
+- **[@cjdenio](https://github.com/cjdenio)** (17 contributions)
+
+- **[@Matt-Gleich](https://github.com/Matt-Gleich)** (3 contributions)
 
 <!-- DO NOT REMOVE - contributor_list:end -->
