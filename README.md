@@ -60,3 +60,10 @@ Don't like the default look? You can write a custom [Jinja](https://jinja.pallet
 ```
 
 ## 👀 Live Example
+<!-- DO NOT REMOVE - contributor_list:start -->
+## 👥 Contributors
+
+
+- <img src="https://avatars1.githubusercontent.com/u/34525547?v=4" width="70" /> **[@cjdenio](https://github.com/cjdenio)** (9 contributions)
+
+<!-- DO NOT REMOVE - contributor_list:end -->
