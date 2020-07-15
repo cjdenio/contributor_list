@@ -6,6 +6,7 @@ GitHub Action to easily list contributors on your README!
 
 In your repository, create a file named `contributor_list.yml` under `.github/workflows/`.
 Paste the following content into it:
+
 ```yml
 name: Contributor List
 on:
@@ -19,7 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: cjdenio/contributor_list@master
-
 ```
 
 Push to the repo, and your contributor list has been created! 🎉
@@ -33,6 +33,7 @@ Don't want it at the end of the README? That's OK! Just move it to the place you
 Don't like the default look? You can write a custom [Jinja](https://jinja.palletsprojects.com/) template, then place it in the `.github/contributor_list_template.md` file. [Here's the default one](https://raw.githubusercontent.com/cjdenio/contributor_list/master/contributor_list/default_template.md), for inspiration.
 
 `contributors` is an array that looks like this (already sorted by number of contributions, by the way):
+
 ```json
 [
   {
@@ -44,10 +45,32 @@ Don't like the default look? You can write a custom [Jinja](https://jinja.pallet
 ]
 ```
 
-## 👀 Live Example
-<!-- DO NOT REMOVE - contributor_list:start -->
-## 👥 Contributors
+## ⚙️ Configuration
 
+You can customize the commit message! Below is an example:
+
+```yaml
+name: Contributor List
+on:
+  push:
+    branches:
+      - master
+jobs:
+  contributor_list:
+    name: Contributor List
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: cjdenio/contributor_list@master
+        with:
+          commit_message: 📝 Update contributors list
+```
+
+## 👀 Live Example
+
+<!-- DO NOT REMOVE - contributor_list:start -->
+
+## 👥 Contributors
 
 - **[@cjdenio](https://github.com/cjdenio)** (11 contributions)
 
