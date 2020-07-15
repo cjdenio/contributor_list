@@ -18,7 +18,7 @@ else:
 with open(file_path) as template_file:
     template = Template(template_file.read())
 
-rendered = template.render({"contributors": r.json()})
+rendered = template.render({"contributors": list(filter(lambda x: x['login'] != "actions-user", r.json()))})
 
 with open("README.md") as _readme:
     readme = _readme.read()
