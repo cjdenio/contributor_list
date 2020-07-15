@@ -2,8 +2,13 @@ name: contributor_list
 author: Caleb Denio
 description: Easily list contributors on your README!
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: 'docker'
+  image: 'Dockerfile'
 branding:
   color: blue
   icon: users
+inputs:
+  commit_message:
+    required: false
+    default: Update contributors list
+    description: The commit message when updating the README.md
