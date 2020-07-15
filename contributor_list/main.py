@@ -18,7 +18,8 @@ else:
 with open(file_path) as template_file:
     template = Template(template_file.read())
 
-rendered = template.render({"contributors": list(filter(lambda x: x['login'] != "actions-user", r.json()))})
+rendered = template.render({"contributors": list(
+    filter(lambda x: x['login'] != "actions-user", r.json()))})
 
 with open("README.md") as _readme:
     readme = _readme.read()
@@ -37,5 +38,7 @@ else:
 os.system('git config --global user.email "action@github.com"')
 os.system('git config --global user.name "Publishing Bot"')
 os.system('git add .')
-os.system('git commit -m "Update contributors list"')
+os.system('git commit -m "{}"'.format(
+    os.getenv('INPUT_COMMIT_MESSAGE')
+))
 os.system('git push')
