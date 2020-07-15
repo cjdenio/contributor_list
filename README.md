@@ -49,6 +49,6 @@ Don't like the default look? You can write a custom [Jinja](https://jinja.pallet
 ## 👥 Contributors
 
 
-- **[@cjdenio](https://github.com/cjdenio)** (11 contributions)
+- **[@cjdenio](https://github.com/cjdenio)** (14 contributions)
 
 <!-- DO NOT REMOVE - contributor_list:end -->
