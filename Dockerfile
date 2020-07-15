@@ -8,6 +8,6 @@ ENV PATH="/root/.poetry/bin:${PATH}"
 COPY . /usr/src/app
 
 RUN poetry config virtualenvs.create false
-RUN poetry install --no-root
+RUN poetry install --no-root --no-dev
 
 CMD ["python", "/usr/src/app/contributor_list/main.py"]
