@@ -66,6 +66,4 @@ Don't like the default look? You can write a custom [Jinja](https://jinja.pallet
 
 - **[@cjdenio](https://github.com/cjdenio)** (11 contributions)
 
-- **[@actions-user](https://github.com/actions-user)** (1 contribution)
-
 <!-- DO NOT REMOVE - contributor_list:end -->
