@@ -64,6 +64,8 @@ Don't like the default look? You can write a custom [Jinja](https://jinja.pallet
 ## 👥 Contributors
 
 
-- <img src="https://avatars1.githubusercontent.com/u/34525547?v=4" width="70" /> **[@cjdenio](https://github.com/cjdenio)** (9 contributions)
+- **[@cjdenio](https://github.com/cjdenio)** (11 contributions)
+
+- **[@actions-user](https://github.com/actions-user)** (1 contribution)
 
 <!-- DO NOT REMOVE - contributor_list:end -->
