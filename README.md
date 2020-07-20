@@ -47,7 +47,7 @@ Don't like the default look? You can write a custom [Jinja](https://jinja.pallet
 
 ## ⚙️ Configuration
 
-You can customize the commit message! Below is an example:
+You can customize your contributor list with various options! Below is an example: (they're all optional, by the way)
 
 ```yaml
 name: Contributor List
@@ -64,6 +64,8 @@ jobs:
       - uses: cjdenio/contributor_list@master
         with:
           commit_message: 📝 Update contributors list
+          # Max number of contributors to display on the README
+          max_contributors: 5 # Default: 10
 ```
 
 ## 👀 Live Example

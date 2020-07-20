@@ -6,7 +6,7 @@ import os
 from os import path
 
 r = requests.get(
-    f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contributors",
+    f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contributors?per_page={os.getenv('INPUT_MAX_CONTRIBUTORS', '10')}",
     headers={"cache-control": "no-cache"},
 )
 

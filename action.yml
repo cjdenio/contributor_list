@@ -12,3 +12,7 @@ inputs:
     required: false
     default: Update contributors list
     description: The commit message when updating the README.md
+  max_contributors:
+    required: false
+    default: 10
+    description: Max number of contributors shown
