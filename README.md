@@ -74,7 +74,7 @@ jobs:
 ## 👥 Contributors
 
 
-- **[@cjdenio](https://github.com/cjdenio)** (17 contributions)
+- **[@cjdenio](https://github.com/cjdenio)** (18 contributions)
 
 - **[@Matt-Gleich](https://github.com/Matt-Gleich)** (3 contributions)
 
