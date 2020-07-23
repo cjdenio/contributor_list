@@ -2,8 +2,8 @@ name: contributor_list
 author: Caleb Denio
 description: Easily list contributors on your README!
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: Dockerfile
 branding:
   color: blue
   icon: users
@@ -16,3 +16,7 @@ inputs:
     required: false
     default: 10
     description: Max number of contributors shown
+  show_numbers:
+    required: false
+    default: false
+    description: Whether or not to display the number of contributions

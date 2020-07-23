@@ -1,50 +1,56 @@
-from jinja2 import Template
+from util import (
+    getTemplate,
+    writeToReadme,
+    getStoredContributors,
+    setStoredContributors,
+)
+import util
 import requests
-import pathlib
-import re
 import os
 from os import path
+
+showNumbers = os.getenv("INPUT_SHOW_NUMBERS", "false").lower() == "true"
+
+
+def commit():
+    if not os.getenv("DEV") == "true":
+        util.commit(os.getenv("INPUT_COMMIT_MESSAGE", "Update contributors list"))
+    else:
+        print("Running in dev mode, not committing")
+
+
+def stripToLogin(contributors):
+    return list(map(lambda x: x["login"], contributors))
+
 
 r = requests.get(
     f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/contributors?per_page={os.getenv('INPUT_MAX_CONTRIBUTORS', '10')}",
     headers={"cache-control": "no-cache"},
 )
 
-if path.exists(".github/contributor_list_template.md"):
-    file_path = pathlib.Path(".github/contributor_list_template.md").absolute()
+contributors = list(filter(lambda x: x["login"] != "actions-user", r.json()))
+if not showNumbers:
+    def removeNumbers(x: dict):
+        x.pop("contributions")
+        return x
+
+    contributors = list(map(removeNumbers, contributors))
+
+rendered = getTemplate(contributors)
+
+storedContributors = getStoredContributors()
+
+# Only update list if
+#   a) the stored contributor list isn't there
+#   b) the user wants to display contribution numbers
+#   c) the list of contributors has been updated since the last push
+if (
+    (storedContributors is None)
+    or showNumbers
+    or (storedContributors != stripToLogin(contributors))
+):
+    setStoredContributors(stripToLogin(contributors))
+    writeToReadme(rendered)
+    commit()
 else:
-    file_path = pathlib.Path(__file__).parent.absolute().joinpath("default_template.md")
-
-with open(file_path) as template_file:
-    template = Template(template_file.read())
-
-rendered = template.render(
-    {"contributors": list(filter(lambda x: x["login"] != "actions-user", r.json()))}
-)
-
-with open("README.md") as _readme:
-    readme = _readme.read()
-
-if not "<!-- DO NOT REMOVE - contributor_list:start -->" in readme:
-    print("Contributor list not found - creating it now! 🎉")
-    with open("README.md", "a") as readme:
-        readme.write(
-            "\n<!-- DO NOT REMOVE - contributor_list:start -->\n"
-            + rendered
-            + "\n<!-- DO NOT REMOVE - contributor_list:end -->"
-        )
-else:
-    readme = re.sub(
-        "(?<=<!-- DO NOT REMOVE - contributor_list:start -->\n).+?(?=\n<!-- DO NOT REMOVE - contributor_list:end -->)",
-        rendered,
-        readme,
-        flags=re.DOTALL,
-    )
-    with open("README.md", "w") as _readme:
-        _readme.write(readme)
-
-os.system('git config --global user.email "action@github.com"')
-os.system('git config --global user.name "Publishing Bot"')
-os.system("git add .")
-os.system(f'git commit -m "{os.getenv("INPUT_COMMIT_MESSAGE")}"')
-os.system("git push")
+    print("Nothing to change!")
