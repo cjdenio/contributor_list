@@ -69,10 +69,12 @@ jobs:
           max_contributors: 5 # Default: 10
           # This enables showing contribution numbers on the README.
           # ⚠️ THIS WILL PUSH TO THE REPO AFTER EVERY COMMIT ⚠️
-          show_numbers: true
+          show_numbers: true # Default: false
 ```
 
-## 👀 Live Example
+## 🐛 Known Issues
+
+- [**Contributor List won't work if your default branch is protected.**](https://github.com/cjdenio/contributor_list/issues/6)
 
 <!-- DO NOT REMOVE - contributor_list:start -->
 ## 👥 Contributors

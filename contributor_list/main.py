@@ -30,6 +30,7 @@ r = requests.get(
 
 contributors = list(filter(lambda x: x["login"] != "actions-user", r.json()))
 if not showNumbers:
+
     def removeNumbers(x: dict):
         x.pop("contributions")
         return x
