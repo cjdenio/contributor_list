@@ -1,3 +1,4 @@
+<!-- DO NOT REMOVE - contributor_list:data:start:["cjdenio", "Matt-Gleich"]:end -->
 # 👥 Contributor List
 
 GitHub Action to easily list contributors on your README!
