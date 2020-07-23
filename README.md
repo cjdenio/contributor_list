@@ -67,6 +67,9 @@ jobs:
           commit_message: 📝 Update contributors list
           # Max number of contributors to display on the README
           max_contributors: 5 # Default: 10
+          # This enables showing contribution numbers on the README.
+          # ⚠️ THIS WILL PUSH TO THE REPO AFTER EVERY COMMIT ⚠️
+          show_numbers: true
 ```
 
 ## 👀 Live Example
