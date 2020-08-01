@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: cjdenio/contributor_list@master
+      - uses: docker://cjdenio/contributor_list:latest
 ```
 
 Push to the repo, and your contributor list has been created! 🎉
@@ -62,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: cjdenio/contributor_list@master
+      - uses: docker://cjdenio/contributor_list:latest
         with:
           commit_message: 📝 Update contributors list
           # Max number of contributors to display on the README
