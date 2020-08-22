@@ -52,7 +52,9 @@ if (
     or (storedContributors != stripToLogin(contributors))
 ):
     if storedContributors != stripToLogin(contributors):
-        print(f"Current contributors in README: {json.dumps(storedContributors)}\nActual repo contributors: {json.dumps(stripToLogin(contributors))}")
+        print(
+            f"Current contributors in README: {json.dumps(storedContributors)}\nActual repo contributors: {json.dumps(stripToLogin(contributors))}"
+        )
 
     setStoredContributors(stripToLogin(contributors))
     writeToReadme(rendered)
