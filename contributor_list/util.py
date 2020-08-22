@@ -52,7 +52,7 @@ def commit(commit_name: str) -> None:
     os.system("git push")
 
 
-def getStoredContributors():
+def getStoredContributors() -> list:
     with open("README.md") as _readme:
         readme = _readme.read()
     match = re.search(

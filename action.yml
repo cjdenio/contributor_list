@@ -3,7 +3,7 @@ author: Caleb Denio
 description: Easily list contributors on your README!
 runs:
   using: docker
-  image: Dockerfile
+  image: github.Dockerfile
 branding:
   color: blue
   icon: users
