@@ -29,9 +29,9 @@ def writeToReadme(rendered: str) -> None:
         print("Contributor list not found - creating it now! 🎉")
         with open("README.md", "a") as readme:
             readme.write(
-                "\n<!-- DO NOT REMOVE - contributor_list:start -->\n"
+                "\n<!-- prettier-ignore-start -->\n<!-- DO NOT REMOVE - contributor_list:start -->\n"
                 + rendered
-                + "\n<!-- DO NOT REMOVE - contributor_list:end -->"
+                + "\n<!-- DO NOT REMOVE - contributor_list:end -->\n<!-- prettier-ignore-end -->"
             )
     else:
         readme = re.sub(
