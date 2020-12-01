@@ -1,3 +1,7 @@
+mod action;
+
 fn main() {
-    println!("Hello, world!");
+    let input = "thing";
+    println!("{:?}", action::input(input));
+    println!("{:?}", action::input(input));
 }
