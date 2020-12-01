@@ -1,0 +1,23 @@
+name: contributor_list
+author: Caleb Denio
+description: Easily list contributors on your README!
+runs:
+  using: docker
+  image: github.Dockerfile
+branding:
+  color: blue
+  icon: users
+inputs:
+  commit_message:
+    required: false
+    default: Update contributors list
+    description: The commit message when updating the README.md
+  max_contributors:
+    required: false
+    default: 10
+    description: Max number of contributors shown
+  show_numbers:
+    required: false
+    default: false
+    description: Whether or not to display the number of contributions
+
