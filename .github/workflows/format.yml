@@ -11,4 +11,5 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           components: rustfmt
+          toolchain: stable
       - run: cargo fmt -- --check
