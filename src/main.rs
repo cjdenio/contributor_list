@@ -1,7 +1,11 @@
+mod github;
 mod action;
 
 fn main() {
-    let input = "thing";
-    println!("{:?}", action::input(input));
-    println!("{:?}", action::input(input));
+    let contributors = github::get_contributors(&action::repository());
+
+    match contributors {
+        Ok(x) => println!("{:?}", x[0].login),
+        Err(x) => println!("{}", x)
+    }
 }
