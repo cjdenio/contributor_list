@@ -1,11 +1,12 @@
-mod github;
 mod action;
+mod github;
 
 fn main() {
-    let contributors = github::get_contributors(&action::repository());
+    let repo = action::repository();
+    let contributors = github::get_contributors(&repo);
 
     match contributors {
-        Ok(x) => println!("{:?}", x[0].login),
-        Err(x) => println!("{}", x)
+        Ok(x) => println!("{:?}", x.iter().map(|v| &v.login).collect::<Vec<&String>>()),
+        Err(x) => println!("{}", x),
     }
 }
