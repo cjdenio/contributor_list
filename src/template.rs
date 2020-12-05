@@ -1,4 +1,4 @@
-use super::{github, action};
+use super::{action, github};
 use tera::{Context, Tera};
 
 use std::fs;
@@ -10,7 +10,7 @@ pub fn render_template(contributors: &Vec<github::Contributor>) -> Result<String
 
     let template = match user_defined_template() {
         Some(x) => x,
-        None => default_template.to_string()
+        None => default_template.to_string(),
     };
 
     let mut tera = Tera::default();
@@ -24,5 +24,8 @@ pub fn render_template(contributors: &Vec<github::Contributor>) -> Result<String
 }
 
 fn user_defined_template() -> Option<String> {
-    fs::read_to_string(Path::new(&action::github_workspace()).join(".github/contributor_list_template.md")).ok()
+    fs::read_to_string(
+        Path::new(&action::github_workspace()).join(".github/contributor_list_template.md"),
+    )
+    .ok()
 }
