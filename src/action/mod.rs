@@ -8,3 +8,8 @@ pub fn input(input: &str) -> Option<String> {
 pub fn repository() -> String {
     env::var("GITHUB_REPOSITORY").expect("Not running in a GitHub Actions environment")
 }
+
+/// Gets the path to the cloned GitHub repository
+pub fn github_workspace() -> String {
+    env::var("GITHUB_WORKSPACE").expect("Not running in a GitHub Actions environment")
+}
