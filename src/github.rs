@@ -1,10 +1,10 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Contributor {
     pub login: String,
     pub avatar_url: String,
-    pub contributions: i32,
+    pub contributions: Option<i32>,
     pub html_url: String,
 }
 
@@ -19,7 +19,9 @@ pub fn get_contributors(repo: &str) -> Result<Vec<Contributor>, String> {
         .map_err(|v| v.to_string())?;
 
     if !resp.status().is_success() {
-        return Err(resp.text().unwrap_or(String::from("non-zero exit code")));
+        return Err(resp
+            .text()
+            .unwrap_or(String::from("non-success status code")));
     }
 
     let contributors = resp.json::<Vec<Contributor>>().map_err(|v| v.to_string())?;
