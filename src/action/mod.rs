@@ -1,5 +1,6 @@
 use std::env;
 
+/// Gets the user-provided input by name
 pub fn input(input: &str) -> Option<String> {
     env::var(format!("INPUT_{}", input.to_uppercase())).ok()
 }
