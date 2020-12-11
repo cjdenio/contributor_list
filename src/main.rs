@@ -1,7 +1,7 @@
 mod action;
 mod github;
-mod template;
 mod readme;
+mod template;
 
 use readme::Readme;
 
