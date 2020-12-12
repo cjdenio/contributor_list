@@ -1,6 +1,8 @@
 use regex::Regex;
 use std::{fs, io};
 
+const DATA_REGEX: &str = r"<!-- DO NOT REMOVE - contributor_list:data:start:(.+):end -->";
+
 pub struct Readme {
     pub path: String,
 }
@@ -20,8 +22,8 @@ impl Readme {
     pub fn contributors(&self) -> Result<Option<Vec<String>>, String> {
         let file = self.read()?;
 
-        let re =
-            Regex::new(r"<!-- DO NOT REMOVE - contributor_list:data:start:(.+):end -->").unwrap();
+        let re = Regex::new(DATA_REGEX).unwrap();
+
         Ok(match re.captures(&file) {
             Some(x) => serde_json::from_str::<Vec<String>>(x.get(1).unwrap().as_str()).ok(),
             None => None,
