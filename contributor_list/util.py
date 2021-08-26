@@ -18,18 +18,10 @@ def getTemplate(contributors: List[dict]) -> str:
     with open(file_path) as template_file:
         template = Template(template_file.read())
 
-    header_level = "##"
-    header_level_var = os.getenv("INPUT_HEADER_LEVEL")
-    if header_level_var is not None:
-        try:
-            level_count = int(header_level_var)
-            level = ""
-            for i in range(level_count):
-                level += "#"
-        except ValueError:
-            print(
-                f"Failed to convert {header_level_var} to int. Falling back on {level}."
-            )
+    level_count = int(os.getenv("INPUT_HEADER_LEVEL"))
+    header_level = ""
+    for i in range(level_count):
+        header_level += "#"
 
     return template.render({"contributors": contributors, "header_level": header_level})
 
