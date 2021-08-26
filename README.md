@@ -1,4 +1,4 @@
-<!-- DO NOT REMOVE - contributor_list:data:start:["cjdenio", "Matt-Gleich"]:end -->
+<!-- DO NOT REMOVE - contributor_list:data:start:["cjdenio", "gleich"]:end -->
 # 👥 Contributor List
 
 GitHub Action to easily list contributors on your README!
@@ -82,6 +82,6 @@ jobs:
 
 - **[@cjdenio](https://github.com/cjdenio)**
 
-- **[@Matt-Gleich](https://github.com/Matt-Gleich)**
+- **[@gleich](https://github.com/gleich)**
 
 <!-- DO NOT REMOVE - contributor_list:end -->
