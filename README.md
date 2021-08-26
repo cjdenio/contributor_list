@@ -70,6 +70,8 @@ jobs:
           # This enables showing contribution numbers on the README.
           # ⚠️ THIS WILL PUSH TO THE REPO AFTER EVERY COMMIT ⚠️
           show_numbers: true # Default: false
+          # Markdown heading level
+          header_level: 3 # Default: 2
 ```
 
 ## 🐛 Known Issues
