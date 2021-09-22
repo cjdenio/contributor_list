@@ -18,7 +18,12 @@ def getTemplate(contributors: List[dict]) -> str:
     with open(file_path) as template_file:
         template = Template(template_file.read())
 
-    return template.render({"contributors": contributors})
+    level_count = int(os.getenv("INPUT_HEADER_LEVEL"))
+    header_level = ""
+    for i in range(level_count):
+        header_level += "#"
+
+    return template.render({"contributors": contributors, "header_level": header_level})
 
 
 def writeToReadme(rendered: str) -> None:

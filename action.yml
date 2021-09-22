@@ -20,3 +20,7 @@ inputs:
     required: false
     default: false
     description: Whether or not to display the number of contributions
+  header_level:
+    required: false
+    default: 2
+    description: Markdown heading level for the contributors section
